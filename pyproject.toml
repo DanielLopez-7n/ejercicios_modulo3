@@ -1,0 +1,13 @@
+[project]
+name = "ejercicios-modulo3"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.14.2"
+pytest = "^8.4.2"
+rich = "^14.2.0"
+
