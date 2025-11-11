@@ -32,12 +32,14 @@ def analizar_csv(nombre_archivo: str, columna: str) -> Dict[str, float]:
                 continue
 
     if not valores:
-        raise ValueError(f"No se encontraron valores numéricos válidos en la columna '{columna}'.")
+        raise ValueError(
+            f"No se encontraron valores numéricos válidos en la columna '{columna}'."
+        )
 
     resultado = {
         "promedio": sum(valores) / len(valores),
         "max": max(valores),
-        "min": min(valores)
+        "min": min(valores),
     }
 
     return resultado
@@ -48,7 +50,11 @@ def mostrar_resultados_tabla(resultado: Dict[str, float], columna: str) -> None:
     Muestra los resultados del análisis en una tabla con Rich.
     """
     console = Console()
-    tabla = Table(title=f"Análisis de la columna '{columna}'", show_header=True, header_style="bold cyan")
+    tabla = Table(
+        title=f"Análisis de la columna '{columna}'",
+        show_header=True,
+        header_style="bold cyan",
+    )
 
     tabla.add_column("Métrica", justify="left")
     tabla.add_column("Valor", justify="right")

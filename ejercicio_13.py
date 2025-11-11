@@ -17,20 +17,26 @@ def cargar_inventario(nombre_archivo: str = ARCHIVO_INVENTARIO) -> List[Dict]:
         return []
 
 
-def guardar_inventario(inventario: List[Dict], nombre_archivo: str = ARCHIVO_INVENTARIO) -> None:
+def guardar_inventario(
+    inventario: List[Dict], nombre_archivo: str = ARCHIVO_INVENTARIO
+) -> None:
     """Guarda el inventario actual en el archivo JSON."""
     with open(nombre_archivo, "w", encoding="utf-8") as f:
         json.dump(inventario, f, indent=4, ensure_ascii=False)
 
 
-def agregar_producto(inventario: List[Dict], nombre: str, cantidad: int, precio: float) -> List[Dict]:
+def agregar_producto(
+    inventario: List[Dict], nombre: str, cantidad: int, precio: float
+) -> List[Dict]:
     """Agrega un nuevo producto al inventario."""
     nuevo = {"nombre": nombre, "cantidad": cantidad, "precio": precio}
     inventario.append(nuevo)
     return inventario
 
 
-def vender_producto(inventario: List[Dict], nombre: str, cantidad_vendida: int) -> List[Dict]:
+def vender_producto(
+    inventario: List[Dict], nombre: str, cantidad_vendida: int
+) -> List[Dict]:
     """Disminuye la cantidad del producto indicado si hay stock suficiente."""
     for producto in inventario:
         if producto["nombre"].lower() == nombre.lower():
@@ -57,9 +63,7 @@ def mostrar_inventario(inventario: List[Dict]) -> None:
 
     for producto in inventario:
         tabla.add_row(
-            producto["nombre"],
-            str(producto["cantidad"]),
-            f"${producto['precio']:,}"
+            producto["nombre"], str(producto["cantidad"]), f"${producto['precio']:,}"
         )
 
     console.print(tabla)
@@ -69,7 +73,9 @@ def main() -> None:
     inventario = cargar_inventario()
     while True:
         console.print("\n[bold blue]Gestor de Inventario[/bold blue]")
-        console.print("1. Ver inventario\n2. Agregar producto\n3. Vender producto\n4. Salir")
+        console.print(
+            "1. Ver inventario\n2. Agregar producto\n3. Vender producto\n4. Salir"
+        )
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
