@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nombre": "Martillo",
+        "cantidad": 10,
+        "precio": 15000
+    },
+    {
+        "id": 2,
+        "nombre": "Destornillador",
+        "cantidad": 20,
+        "precio": 5000
+    },
+    {
+        "id": 3,
+        "nombre": "Cinta",
+        "cantidad": 10,
+        "precio": 3000.0
+    }
+]
